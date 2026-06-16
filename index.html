@@ -103,7 +103,7 @@
       top: -200px; left: 50%;
       transform: translateX(-50%);
       width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(245,200,66,0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(0,204,68,0.12) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -111,8 +111,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(245,200,66,0.1);
-      border: 1px solid rgba(245,200,66,0.25);
+      background: rgba(0,204,68,0.1);
+      border: 1px solid rgba(0,204,68,0.25);
       border-radius: 100px;
       padding: 6px 16px;
       font-size: 0.8rem;
@@ -157,12 +157,12 @@
       border-radius: 10px;
       text-decoration: none;
       transition: background .2s, transform .15s, box-shadow .2s;
-      box-shadow: 0 0 0 0 rgba(245,200,66,0);
+      box-shadow: 0 0 0 0 rgba(0,204,68,0);
     }
     .btn-primary:hover {
       background: var(--accent2);
       transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(245,200,66,0.25);
+      box-shadow: 0 8px 30px rgba(0,204,68,0.25);
     }
 
     .btn-secondary {
@@ -311,7 +311,7 @@
       position: relative;
       transition: border-color .2s, transform .2s;
     }
-    .pilar-card:hover { border-color: rgba(245,200,66,0.3); transform: translateY(-4px); }
+    .pilar-card:hover { border-color: rgba(0,204,68,0.3); transform: translateY(-4px); }
 
     .pilar-num {
       font-size: 0.75rem;
@@ -324,11 +324,13 @@
     .pilar-icon {
       width: 48px; height: 48px;
       border-radius: 12px;
-      background: rgba(245,200,66,0.1);
+      background: rgba(0,204,68,0.1);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--accent);
       margin-bottom: 20px;
     }
 
@@ -358,8 +360,8 @@
     .step-num {
       width: 56px; height: 56px;
       border-radius: 50%;
-      background: rgba(245,200,66,0.08);
-      border: 1px solid rgba(245,200,66,0.2);
+      background: rgba(0,204,68,0.08);
+      border: 1px solid rgba(0,204,68,0.2);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -404,7 +406,7 @@
       padding: 36px 20px;
       transition: border-color .2s;
     }
-    .resultado-card:hover { border-color: rgba(245,200,66,0.3); }
+    .resultado-card:hover { border-color: rgba(0,204,68,0.3); }
     .resultado-card .r-num {
       font-size: 2.6rem;
       font-weight: 900;
@@ -444,7 +446,7 @@
       padding: 28px 22px;
       transition: border-color .2s, transform .2s;
     }
-    .entregavel-card:hover { border-color: rgba(245,200,66,0.25); transform: translateY(-3px); }
+    .entregavel-card:hover { border-color: rgba(0,204,68,0.25); transform: translateY(-3px); }
 
     .entregavel-num {
       font-size: 0.7rem;
@@ -502,7 +504,7 @@
       padding: 28px;
       transition: border-color .2s;
     }
-    .depo-card:hover { border-color: rgba(245,200,66,0.3); }
+    .depo-card:hover { border-color: rgba(0,204,68,0.3); }
 
     .stars { color: var(--accent); font-size: 0.9rem; margin-bottom: 16px; }
 
@@ -587,7 +589,7 @@
       font-size: 0.8rem;
       transition: transform .3s, background .2s;
     }
-    .faq-item.open .faq-arrow { transform: rotate(45deg); background: rgba(245,200,66,0.15); color: var(--accent); }
+    .faq-item.open .faq-arrow { transform: rotate(45deg); background: rgba(0,204,68,0.15); color: var(--accent); }
 
     .faq-a {
       max-height: 0;
@@ -614,7 +616,7 @@
       bottom: -200px; left: 50%;
       transform: translateX(-50%);
       width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(245,200,66,0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(0,204,68,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -652,7 +654,7 @@
       transition: border-color .2s;
     }
     .form-group input:focus,
-    .form-group select:focus { border-color: rgba(245,200,66,0.4); }
+    .form-group select:focus { border-color: rgba(0,204,68,0.4); }
     .form-group select option { background: var(--bg3); }
 
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -747,7 +749,7 @@
       font-size: 0.9rem;
       transition: background .2s, color .2s;
     }
-    .social-link:hover { background: rgba(245,200,66,0.1); color: var(--accent); }
+    .social-link:hover { background: rgba(0,204,68,0.1); color: var(--accent); }
 
     /* ── TAGLINE MARQUEE ── */
     .marquee-wrap {
@@ -837,7 +839,7 @@
   <!-- HERO -->
   <section class="hero" id="inicio">
     <h1>Autoridade.<br><span class="highlight">Performance.</span><br>Previsibilidade.</h1>
-    <p>Produção audiovisual e tráfego pago integrados para empresas que querem crescer de verdade — não só aparecer.</p>
+    <p>A gente cuida do seu marketing de ponta a ponta: conteúdo, redes, tráfego e vendas. Você foca em tocar o negócio, a gente traz cliente.</p>
     <div class="hero-cta-group">
       <a href="#contato" class="btn-primary">Quero aplicar o método →</a>
       <a href="#metodo" class="btn-secondary">Como funciona</a>
@@ -888,28 +890,28 @@
         <div>
           <span class="section-tag">O Problema</span>
           <h2 class="section-title">Você está visível,<br>mas não é <span style="color:var(--accent)">lembrado.</span></h2>
-          <p class="section-sub">Ter presença digital não é suficiente. A maioria das empresas produz conteúdo sem estratégia e investe em tráfego sem posicionamento — e continua invisível para quem importa.</p>
+          <p class="section-sub">Postar todo dia não enche a agenda. Tem empresa boa que ninguém conhece e tem anúncio rodando que só queima dinheiro. Quase nunca o problema é o seu produto. É a forma como ele está sendo mostrado.</p>
 
           <div class="problema-list">
             <div class="problema-item">
-              <div class="problema-icon">⚡</div>
+              <div class="problema-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round"><line x1="4" y1="6" x2="14" y2="6"/><line x1="4" y1="12" x2="10" y2="12"/><line x1="4" y1="18" x2="16" y2="18"/><line x1="19" y1="9" x2="19" y2="9.01"/><line x1="19" y1="15" x2="19" y2="15.01"/></svg></div>
               <div>
-                <strong>Conteúdo sem consistência</strong>
-                <p>Postagens esporádicas que não constroem autoridade nem geram demanda previsível.</p>
+                <strong>Conteúdo solto</strong>
+                <p>Você posta quando dá, sem linha nenhuma. Aí o feed não vira autoridade e muito menos cliente.</p>
               </div>
             </div>
             <div class="problema-item">
-              <div class="problema-icon">📉</div>
+              <div class="problema-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 9 12 13 8 21 16"/><polyline points="15 16 21 16 21 10"/></svg></div>
               <div>
-                <strong>Tráfego sem retorno</strong>
-                <p>Investimento em anúncios sem posicionamento estratégico resulta em custo sem conversão.</p>
+                <strong>Anúncio que não converte</strong>
+                <p>Investe na campanha, aparece pra muita gente e mesmo assim não vende. Dinheiro saindo, resultado não.</p>
               </div>
             </div>
             <div class="problema-item">
-              <div class="problema-icon">🔄</div>
+              <div class="problema-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 12 7 6 11 14 15 8 19 16 21 11"/></svg></div>
               <div>
-                <strong>Crescimento imprevisível</strong>
-                <p>Meses bons e meses ruins sem saber o que gerou cada resultado.</p>
+                <strong>Mês bom, mês ruim</strong>
+                <p>Um mês vende bem, no outro some tudo. E você nunca sabe o que fez dar certo pra repetir.</p>
               </div>
             </div>
           </div>
@@ -938,32 +940,32 @@
     <div class="container">
       <span class="section-tag">O Método</span>
       <h2 class="section-title">O método K.R.O.V.</h2>
-      <p class="section-sub" style="margin:0 auto">Quatro etapas integradas que levam o seu negócio do diagnóstico à escala. Cada letra é uma fase — e juntas formam o nome que carrega o nosso compromisso: <strong style="color:var(--accent)">Krov</strong>.</p>
+      <p class="section-sub" style="margin:0 auto">Não tem fórmula mágica, tem método. Quatro fases que tiram o seu negócio do achismo e colocam num caminho claro, do diagnóstico até a escala. As iniciais formam o nosso nome: <strong style="color:var(--accent)">Krov</strong>.</p>
 
       <div class="pilares-grid">
         <div class="pilar-card">
-          <div class="pilar-num">K — 01 / 04</div>
-          <div class="pilar-icon">🔍</div>
+          <div class="pilar-num">01 / 04</div>
+          <div class="pilar-icon">K</div>
           <h3>Kickoff</h3>
-          <p>Imersão e diagnóstico. Antes de qualquer execução, mergulhamos no seu negócio, no mercado e nos números para entender onde está a oportunidade real.</p>
+          <p>Antes de prometer qualquer coisa, a gente senta com você pra entender o negócio, o público e os números. É aqui que aparece a oportunidade que estava passando batido.</p>
         </div>
         <div class="pilar-card">
-          <div class="pilar-num">R — 02 / 04</div>
-          <div class="pilar-icon">🗺️</div>
+          <div class="pilar-num">02 / 04</div>
+          <div class="pilar-icon">R</div>
           <h3>Roteiro</h3>
-          <p>Estratégia e planejamento. Definimos posicionamento, pauta de conteúdo, funil e plano de mídia — o mapa completo antes de colocar a mão na massa.</p>
+          <p>Com o diagnóstico na mão, a gente monta o plano: posicionamento, pauta, funil e onde investir em mídia. Tudo no papel e aprovado por você antes de começar.</p>
         </div>
         <div class="pilar-card">
-          <div class="pilar-num">O — 03 / 04</div>
-          <div class="pilar-icon">⚙️</div>
+          <div class="pilar-num">03 / 04</div>
+          <div class="pilar-icon">O</div>
           <h3>Operação</h3>
-          <p>Execução de ponta a ponta. Produção audiovisual, social media, campanhas de tráfego e ações comerciais rodando de forma integrada, sob o mesmo teto.</p>
+          <p>A hora de fazer acontecer. Gravação, edição, redes, tráfego e apoio nas vendas, tudo no mesmo time. Você fala com a gente, não com cinco fornecedores.</p>
         </div>
         <div class="pilar-card">
-          <div class="pilar-num">V — 04 / 04</div>
-          <div class="pilar-icon">📈</div>
+          <div class="pilar-num">04 / 04</div>
+          <div class="pilar-icon">V</div>
           <h3>Validação</h3>
-          <p>Análise, otimização e escala. Acompanhamos os dados, ajustamos o que precisa e transformamos o que funciona em crescimento previsível.</p>
+          <p>A gente olha os números toda semana, corta o que não anda e investe mais no que dá certo. É assim que resultado vira rotina, não sorte.</p>
         </div>
       </div>
     </div>
@@ -974,14 +976,14 @@
     <div class="container">
       <span class="section-tag">Como funciona</span>
       <h2 class="section-title">O método K.R.O.V. na prática</h2>
-      <p class="section-sub">Um processo estruturado que vai do diagnóstico à escala — com cada fase conectada à seguinte e análise contínua para otimizar cada resultado.</p>
+      <p class="section-sub">Do diagnóstico até a escala, uma fase puxando a outra. Sem etapa pulada e sem você ficando no escuro sobre o que está rolando.</p>
 
       <div class="steps">
         <div class="step">
           <div class="step-num">K</div>
           <div class="step-content">
             <h3>Kickoff — Imersão e Diagnóstico</h3>
-            <p>Mergulhamos no seu negócio antes de propor qualquer coisa. Entendemos o produto, o público, os números e o cenário competitivo para descobrir onde está a oportunidade real.</p>
+            <p>A gente mergulha no seu negócio antes de propor qualquer coisa. Produto, público, números, concorrência: tudo na mesa pra entender onde dá pra crescer.</p>
             <div class="step-tags">
               <span class="tag">Reunião de imersão</span>
               <span class="tag">Análise de mercado</span>
@@ -994,7 +996,7 @@
           <div class="step-num">R</div>
           <div class="step-content">
             <h3>Roteiro — Estratégia e Planejamento</h3>
-            <p>Desenhamos o mapa completo: posicionamento, pauta de conteúdo, estrutura de funil e plano de mídia. Tudo documentado e validado com você antes de executar.</p>
+            <p>Aqui sai o mapa completo: posicionamento, pauta de conteúdo, estrutura de funil e plano de mídia. Documentado e aprovado por você antes da gente botar a mão na massa.</p>
             <div class="step-tags">
               <span class="tag">Posicionamento</span>
               <span class="tag">Calendário editorial</span>
@@ -1007,7 +1009,7 @@
           <div class="step-num">O</div>
           <div class="step-content">
             <h3>Operação — Execução Integrada</h3>
-            <p>Produção audiovisual, social media, tráfego pago e ações comerciais rodando juntos, sob o mesmo teto. Um único time executando — sem ruído entre agências.</p>
+            <p>Conteúdo, redes, tráfego e vendas rodando juntos, no mesmo time. Sem aquela novela de uma agência jogando a culpa na outra.</p>
             <div class="step-tags">
               <span class="tag">Captação e edição</span>
               <span class="tag">Gestão de redes</span>
@@ -1020,7 +1022,7 @@
           <div class="step-num">V</div>
           <div class="step-content">
             <h3>Validação — Análise, Otimização e Escala</h3>
-            <p>Acompanhamos os dados em tempo real, ajustamos o que precisa e escalamos o que funciona. Relatórios transparentes e reuniões mensais para manter o crescimento previsível.</p>
+            <p>A gente acompanha os números de perto, ajusta o que precisa e escala o que funciona. Relatório claro e reunião todo mês, sem enrolação.</p>
             <div class="step-tags">
               <span class="tag">Dashboard personalizado</span>
               <span class="tag">Relatórios mensais</span>
@@ -1038,7 +1040,7 @@
     <div class="container">
       <span class="section-tag">Resultados</span>
       <h2 class="section-title">Por que a Krov funciona</h2>
-      <p class="section-sub" style="margin:0 auto">A diferença está na integração. Conteúdo e tráfego trabalhando juntos, com estratégia, não separados.</p>
+      <p class="section-sub" style="margin:0 auto">A diferença é simples: aqui conteúdo e tráfego andam juntos, puxados pela mesma estratégia. Não é cada um pra um lado.</p>
 
       <div class="resultados-grid">
         <div class="resultado-card">
@@ -1069,65 +1071,65 @@
           <span class="section-tag">O que está incluso</span>
           <h2 class="section-title">Tudo que você precisa<br>para escalar.</h2>
         </div>
-        <p class="section-sub">Estratégia personalizada inclusa. Sem contratos engessados.</p>
+        <p class="section-sub">Estratégia feita pro seu caso, nada de pacote de prateleira. E sem contrato que te prende.</p>
       </div>
 
       <div class="entregaveis-grid">
         <div class="entregavel-card">
           <div class="entregavel-num">01 / 08</div>
-          <span class="entregavel-icon">🎬</span>
+          <span class="entregavel-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="14" height="14" rx="2"/><path d="M16 9l6-3v12l-6-3"/></svg></span>
           <h4>Captação Audiovisual</h4>
           <p>Produção profissional de vídeos e fotos com direção criativa e roteiro estratégico.</p>
         </div>
         <div class="entregavel-card">
           <div class="entregavel-num">02 / 08</div>
-          <span class="entregavel-icon">✂️</span>
+          <span class="entregavel-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg></span>
           <h4>Pós-produção Completa</h4>
           <p>Edição, corte, legendas, motion graphics e entrega nos formatos de cada plataforma.</p>
         </div>
         <div class="entregavel-card">
           <div class="entregavel-num">03 / 08</div>
-          <span class="entregavel-icon">📱</span>
+          <span class="entregavel-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></span>
           <h4>Gestão de Redes Sociais</h4>
           <p>Publicação, legendas, hashtags e engajamento estratégico nas plataformas relevantes.</p>
         </div>
         <div class="entregavel-card">
           <div class="entregavel-num">04 / 08</div>
-          <span class="entregavel-icon">🎯</span>
+          <span class="entregavel-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span>
           <h4>Campanhas de Tráfego Pago</h4>
           <p>Criação, gestão e otimização de campanhas no Meta Ads e Google Ads.</p>
         </div>
         <div class="entregavel-card">
           <div class="entregavel-num">05 / 08</div>
-          <span class="entregavel-icon">🧠</span>
+          <span class="entregavel-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg></span>
           <h4>Estratégia de Conteúdo</h4>
           <p>Planejamento editorial mensal alinhado ao posicionamento e objetivos do negócio.</p>
         </div>
         <div class="entregavel-card">
           <div class="entregavel-num">06 / 08</div>
-          <span class="entregavel-icon">📊</span>
+          <span class="entregavel-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="21" x2="21" y2="21"/><rect x="5" y="11" width="3" height="7"/><rect x="10.5" y="6" width="3" height="12"/><rect x="16" y="14" width="3" height="4"/></svg></span>
           <h4>Dashboard de Performance</h4>
           <p>Relatórios em tempo real com as métricas que realmente importam para o seu negócio.</p>
         </div>
         <div class="entregavel-card">
           <div class="entregavel-num">07 / 08</div>
-          <span class="entregavel-icon">🤝</span>
+          <span class="entregavel-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
           <h4>Reuniões de Alinhamento</h4>
           <p>Encontros mensais para revisar resultados, ajustar estratégia e planejar os próximos passos.</p>
         </div>
         <div class="entregavel-card">
           <div class="entregavel-num">08 / 08</div>
-          <span class="entregavel-icon">⚙️</span>
+          <span class="entregavel-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
           <h4>Suporte Estratégico</h4>
           <p>Canal direto com o time para dúvidas, ajustes e oportunidades ao longo do mês.</p>
         </div>
       </div>
 
       <div class="entregaveis-footer">
-        <div class="badge-item">Estratégia personalizada inclusa</div>
-        <div class="badge-item">Sem contratos engessados</div>
-        <div class="badge-item">Time dedicado ao seu negócio</div>
-        <div class="badge-item">Relatórios transparentes</div>
+        <div class="badge-item">Estratégia feita pro seu caso</div>
+        <div class="badge-item">Sem contrato que te prende</div>
+        <div class="badge-item">Um time só cuidando de tudo</div>
+        <div class="badge-item">Relatório claro, sem enrolação</div>
       </div>
     </div>
   </section>
@@ -1141,7 +1143,7 @@
         <div>
           <span class="section-tag">FAQ</span>
           <h2 class="section-title">Perguntas frequentes</h2>
-          <p class="section-sub">Tire suas dúvidas antes de falar com nosso time.</p>
+          <p class="section-sub">As dúvidas que mais aparecem por aqui. Se a sua não estiver na lista, é só chamar.</p>
         </div>
         <div class="faq-list">
           <div class="faq-item">
@@ -1149,42 +1151,42 @@
               Em quanto tempo começo a ver resultados?
               <span class="faq-arrow">+</span>
             </button>
-            <div class="faq-a">Os primeiros resultados de presença e engajamento aparecem entre 30 e 60 dias. Resultados consistentes de conversão e ROI em tráfego pago geralmente se consolidam entre 90 e 120 dias, quando o posicionamento já está estabelecido.</div>
+            <div class="faq-a">Os primeiros sinais de presença e engajamento costumam aparecer entre 30 e 60 dias. Resultado firme de venda e retorno em tráfego normalmente engrena entre 90 e 120 dias, quando o posicionamento já pegou. A gente não promete milagre da noite pro dia.</div>
           </div>
           <div class="faq-item">
             <button class="faq-q">
               A Krov cuida das minhas redes sociais?
               <span class="faq-arrow">+</span>
             </button>
-            <div class="faq-a">Sim. Gerenciamos a publicação, o engajamento estratégico e o calendário editorial nas plataformas definidas no onboarding. O conteúdo é sempre aprovado por você antes de ir ao ar.</div>
+            <div class="faq-a">Sim. A gente cuida da publicação, do engajamento e do calendário nas redes que fizerem sentido pro seu negócio. E nada vai pro ar sem a sua aprovação antes.</div>
           </div>
           <div class="faq-item">
             <button class="faq-q">
               Preciso já ter conteúdo para começar?
               <span class="faq-arrow">+</span>
             </button>
-            <div class="faq-a">Não. A captação audiovisual faz parte do nosso escopo. Nossa equipe vai até você (ou realiza a sessão remotamente, dependendo do projeto) para criar todo o conteúdo necessário.</div>
+            <div class="faq-a">Não precisa. A captação faz parte do nosso trabalho. A gente vai até você (ou faz remoto, dependendo do projeto) e produz tudo do zero.</div>
           </div>
           <div class="faq-item">
             <button class="faq-q">
               Como funciona o processo de trabalho?
               <span class="faq-arrow">+</span>
             </button>
-            <div class="faq-a">Após o onboarding estratégico, definimos o posicionamento, a pauta do mês e as campanhas. Semanalmente você recebe atualizações e mensalmente realizamos uma reunião de alinhamento com análise completa de resultados.</div>
+            <div class="faq-a">Depois da imersão inicial, a gente fecha o posicionamento, a pauta do mês e as campanhas. Toda semana você recebe atualização e, uma vez por mês, sentamos pra revisar os números com calma.</div>
           </div>
           <div class="faq-item">
             <button class="faq-q">
               Há contrato de fidelidade?
               <span class="faq-arrow">+</span>
             </button>
-            <div class="faq-a">Trabalhamos com contratos mensais renováveis. Não acreditamos em contratos longos que prendem — acreditamos em resultados que retêm. Nossos 98% de retenção refletem isso.</div>
+            <div class="faq-a">A gente trabalha com contrato mensal renovável. Preferimos segurar você pelo resultado, não por uma multa de rescisão. Tanto é que 98% dos clientes continuam com a gente.</div>
           </div>
           <div class="faq-item">
             <button class="faq-q">
               Para que tipo de empresa a Krov funciona?
               <span class="faq-arrow">+</span>
             </button>
-            <div class="faq-a">Atendemos empresas B2B e B2C com faturamento a partir de R$ 50k/mês que entendem que presença e autoridade são ativos de negócio. Trabalhamos com clínicas, escritórios, construtoras, e-commerces e prestadores de serviços premium.</div>
+            <div class="faq-a">A gente atende empresa que já fatura e quer crescer com consistência, normalmente a partir de R$ 50k/mês. Já trabalhamos com clínica, escritório, construtora, e-commerce e prestador de serviço. Se o seu caso é diferente, chama que a gente conversa.</div>
           </div>
         </div>
       </div>
@@ -1195,8 +1197,8 @@
   <section class="cta-section" id="contato">
     <div class="container">
       <span class="section-tag">Vamos conversar</span>
-      <h2 class="section-title" style="max-width:560px;margin:0 auto 16px">Pronto para gerar demanda previsível?</h2>
-      <p class="section-sub" style="margin:0 auto">Preencha o formulário e nosso time entrará em contato em até 24h para entender o seu momento e apresentar como o método K.R.O.V. se aplica ao seu negócio.</p>
+      <h2 class="section-title" style="max-width:560px;margin:0 auto 16px">Bora colocar o seu negócio pra crescer?</h2>
+      <p class="section-sub" style="margin:0 auto">Preenche aí embaixo que a gente te chama em até 24h. Sem compromisso: primeiro entende o seu momento, depois mostra como o método K.R.O.V. encaixa no seu negócio.</p>
 
       <div class="form-card">
         <form id="contact-form">
@@ -1255,7 +1257,7 @@
         <polygon points="508,15 548,15 548,80 508,45" fill="#00cc44"/>
       </svg>
     </a>
-          <p>Estratégia audiovisual e tráfego pago para empresas que querem crescer com previsibilidade.</p>
+          <p>Marketing de ponta a ponta: conteúdo, redes, tráfego e vendas no mesmo time. A gente cuida, você cresce.</p>
           <div class="social-links" style="margin-top:20px">
             <a href="#" class="social-link" title="Instagram">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
