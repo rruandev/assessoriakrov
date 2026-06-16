@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enjoy Scale | Estratégia audiovisual e tráfego pago</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #09090b;
+      --bg2: #111115;
+      --bg3: #18181c;
+      --border: rgba(255,255,255,0.08);
+      --accent: #f5c842;
+      --accent2: #e8b800;
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --muted2: #71717a;
+      --radius: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 5%;
+      background: rgba(9,9,11,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #09090b;
+      font-weight: 700;
+      font-size: 0.875rem;
+      padding: 10px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+    }
+    .nav-cta:hover { background: var(--accent2); transform: translateY(-1px); }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: .3s; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 140px 5% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(245,200,66,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245,200,66,0.1);
+      border: 1px solid rgba(245,200,66,0.25);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 28px;
+      letter-spacing: 0.5px;
+    }
+    .hero-badge::before { content: '★'; }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+      max-width: 800px;
+    }
+    .hero h1 .highlight { color: var(--accent); }
+
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 40px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 64px;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #09090b;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 0 0 0 rgba(245,200,66,0);
+    }
+    .btn-primary:hover {
+      background: var(--accent2);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(245,200,66,0.25);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      transition: border-color .2s, background .2s;
+    }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.04); }
+
+    .hero-metrics {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .metric {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .metric-value {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -1px;
+    }
+    .metric-label { font-size: 0.8rem; color: var(--muted); font-weight: 500; }
+
+    /* ── SECTION BASE ── */
+    section { padding: 100px 5%; }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 540px;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ── PROBLEMA ── */
+    .problema { background: var(--bg2); }
+
+    .problema-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .problema-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .problema-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 18px 20px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .problema-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: rgba(239,68,68,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .problema-item p { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+    .problema-item strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 0.95rem; }
+
+    .problema-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+    }
+    .stat-card .stat-num {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -1.5px;
+    }
+    .stat-card .stat-desc { font-size: 0.875rem; color: var(--muted); margin-top: 4px; }
+
+    /* ── PILARES ── */
+    .pilares { text-align: center; }
+
+    .pilares-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .pilar-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px 28px;
+      text-align: left;
+      position: relative;
+      transition: border-color .2s, transform .2s;
+    }
+    .pilar-card:hover { border-color: rgba(245,200,66,0.3); transform: translateY(-4px); }
+
+    .pilar-num {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .pilar-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: rgba(245,200,66,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
+
+    .pilar-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; }
+    .pilar-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── SOLUÇÃO ── */
+    .solucao { background: var(--bg2); }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 56px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 32px;
+      padding: 36px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+    .step:last-child { border-bottom: none; }
+
+    .step-num {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: rgba(245,200,66,0.08);
+      border: 1px solid rgba(245,200,66,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .step-content h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+    .step-content p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+    .step-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .tag {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* ── RESULTADOS ── */
+    .resultados { text-align: center; }
+
+    .resultados-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .resultado-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 20px;
+      transition: border-color .2s;
+    }
+    .resultado-card:hover { border-color: rgba(245,200,66,0.3); }
+    .resultado-card .r-num {
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: var(--accent);
+      letter-spacing: -1.5px;
+      line-height: 1;
+    }
+    .resultado-card .r-label {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-top: 10px;
+      line-height: 1.4;
+    }
+
+    /* ── ENTREGÁVEIS ── */
+    .entregaveis { background: var(--bg2); }
+
+    .entregaveis-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 56px;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .entregaveis-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .entregavel-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 22px;
+      transition: border-color .2s, transform .2s;
+    }
+    .entregavel-card:hover { border-color: rgba(245,200,66,0.25); transform: translateY(-3px); }
+
+    .entregavel-num {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .entregavel-icon {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .entregavel-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+    .entregavel-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+
+    .entregaveis-footer {
+      display: flex;
+      gap: 24px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+
+    .badge-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+    .badge-item::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    /* ── DEPOIMENTOS ── */
+    .depoimentos { text-align: center; }
+
+    .depo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+      text-align: left;
+    }
+
+    .depo-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      transition: border-color .2s;
+    }
+    .depo-card:hover { border-color: rgba(245,200,66,0.3); }
+
+    .stars { color: var(--accent); font-size: 0.9rem; margin-bottom: 16px; }
+
+    .depo-card blockquote {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .depo-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .depo-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #ff8c00);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #09090b;
+      flex-shrink: 0;
+    }
+    .depo-name { font-size: 0.9rem; font-weight: 700; }
+    .depo-role { font-size: 0.78rem; color: var(--muted2); }
+
+    /* ── FAQ ── */
+    .faq { background: var(--bg2); }
+
+    .faq-inner {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 0;
+    }
+
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--bg3);
+    }
+
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px 22px;
+      text-align: left;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Inter', sans-serif;
+      transition: background .2s;
+    }
+    .faq-q:hover { background: rgba(255,255,255,0.02); }
+
+    .faq-arrow {
+      width: 24px; height: 24px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.8rem;
+      transition: transform .3s, background .2s;
+    }
+    .faq-item.open .faq-arrow { transform: rotate(45deg); background: rgba(245,200,66,0.15); color: var(--accent); }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease, padding .35s ease;
+      padding: 0 22px;
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 22px 20px; }
+
+    /* ── FORM / CTA ── */
+    .cta-section {
+      text-align: center;
+      background: var(--bg);
+      padding: 100px 5%;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      bottom: -200px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(245,200,66,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .form-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 48px;
+      max-width: 560px;
+      margin: 48px auto 0;
+      text-align: left;
+    }
+
+    .form-group { margin-bottom: 20px; }
+
+    .form-group label {
+      display: block;
+      font-size: 0.825rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      color: var(--text);
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus { border-color: rgba(245,200,66,0.4); }
+    .form-group select option { background: var(--bg3); }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .btn-form {
+      width: 100%;
+      background: var(--accent);
+      color: #09090b;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 15px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+      margin-top: 8px;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-form:hover { background: var(--accent2); transform: translateY(-1px); }
+
+    .form-disclaimer {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--muted2);
+      margin-top: 14px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 56px 5% 32px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .footer-brand p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      max-width: 260px;
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    .footer-links h5 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted2);
+      margin-bottom: 16px;
+    }
+    .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { text-decoration: none; color: var(--muted); font-size: 0.875rem; transition: color .2s; }
+    .footer-links a:hover { color: var(--text); }
+
+    .footer-bottom {
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom p { font-size: 0.8rem; color: var(--muted2); }
+
+    .social-links { display: flex; gap: 12px; }
+    .social-link {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+      transition: background .2s, color .2s;
+    }
+    .social-link:hover { background: rgba(245,200,66,0.1); color: var(--accent); }
+
+    /* ── TAGLINE MARQUEE ── */
+    .marquee-wrap {
+      overflow: hidden;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+      background: var(--bg2);
+    }
+    .marquee-track {
+      display: flex;
+      gap: 48px;
+      animation: marquee 18s linear infinite;
+      width: max-content;
+    }
+    .marquee-track span {
+      white-space: nowrap;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted2);
+    }
+    .marquee-track span.dot { color: var(--accent); }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 65px; left: 0; right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        padding: 24px 5%;
+        gap: 20px;
+      }
+      .problema-inner { grid-template-columns: 1fr; gap: 40px; }
+      .pilares-grid { grid-template-columns: 1fr; }
+      .resultados-grid { grid-template-columns: repeat(2, 1fr); }
+      .entregaveis-grid { grid-template-columns: repeat(2, 1fr); }
+      .depo-grid { grid-template-columns: 1fr; }
+      .faq-inner { grid-template-columns: 1fr; gap: 40px; }
+      .form-card { padding: 28px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 580px) {
+      .resultados-grid { grid-template-columns: 1fr; }
+      .entregaveis-grid { grid-template-columns: 1fr; }
+      .hero-metrics { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="logo">enjoy<span>scale</span></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#metodo">Método P.E.A.P</a></li>
+      <li><a href="#solucao">Solução</a></li>
+      <li><a href="#resultados">Cases</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#contato" class="nav-cta">Quero aplicar</a>
+    <div class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <h1>Autoridade.<br><span class="highlight">Performance.</span><br>Previsibilidade.</h1>
+    <p>Produção audiovisual e tráfego pago integrados para empresas que querem crescer de verdade — não só aparecer.</p>
+    <div class="hero-cta-group">
+      <a href="#contato" class="btn-primary">Quero aplicar o método →</a>
+      <a href="#metodo" class="btn-secondary">Como funciona</a>
+    </div>
+    <div class="hero-metrics">
+      <div class="metric">
+        <span class="metric-value">50+</span>
+        <span class="metric-label">Empresas atendidas</span>
+      </div>
+      <div class="metric">
+        <span class="metric-value">P.E.A.P</span>
+        <span class="metric-label">Método próprio</span>
+      </div>
+      <div class="metric">
+        <span class="metric-value">98%</span>
+        <span class="metric-label">Retenção</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>PRESENÇA</span><span class="dot">·</span>
+      <span>AUTORIDADE</span><span class="dot">·</span>
+      <span>PERFORMANCE</span><span class="dot">·</span>
+      <span>MÉTODO P.E.A.P</span><span class="dot">·</span>
+      <span>TRÁFEGO PAGO</span><span class="dot">·</span>
+      <span>AUDIOVISUAL</span><span class="dot">·</span>
+      <span>ESCALA REAL</span><span class="dot">·</span>
+      <span>ROI MENSURÁVEL</span><span class="dot">·</span>
+      <!-- duplicate for seamless loop -->
+      <span>PRESENÇA</span><span class="dot">·</span>
+      <span>AUTORIDADE</span><span class="dot">·</span>
+      <span>PERFORMANCE</span><span class="dot">·</span>
+      <span>MÉTODO P.E.A.P</span><span class="dot">·</span>
+      <span>TRÁFEGO PAGO</span><span class="dot">·</span>
+      <span>AUDIOVISUAL</span><span class="dot">·</span>
+      <span>ESCALA REAL</span><span class="dot">·</span>
+      <span>ROI MENSURÁVEL</span><span class="dot">·</span>
+    </div>
+  </div>
+
+  <!-- PROBLEMA -->
+  <section class="problema" id="problema">
+    <div class="container">
+      <div class="problema-inner">
+        <div>
+          <span class="section-tag">O Problema</span>
+          <h2 class="section-title">Você está visível,<br>mas não é <span style="color:var(--accent)">lembrado.</span></h2>
+          <p class="section-sub">Ter presença digital não é suficiente. A maioria das empresas produz conteúdo sem estratégia e investe em tráfego sem posicionamento — e continua invisível para quem importa.</p>
+
+          <div class="problema-list">
+            <div class="problema-item">
+              <div class="problema-icon">⚡</div>
+              <div>
+                <strong>Conteúdo sem consistência</strong>
+                <p>Postagens esporádicas que não constroem autoridade nem geram demanda previsível.</p>
+              </div>
+            </div>
+            <div class="problema-item">
+              <div class="problema-icon">📉</div>
+              <div>
+                <strong>Tráfego sem retorno</strong>
+                <p>Investimento em anúncios sem posicionamento estratégico resulta em custo sem conversão.</p>
+              </div>
+            </div>
+            <div class="problema-item">
+              <div class="problema-icon">🔄</div>
+              <div>
+                <strong>Crescimento imprevisível</strong>
+                <p>Meses bons e meses ruins sem saber o que gerou cada resultado.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="problema-visual">
+          <div class="stat-card">
+            <div class="stat-num" style="font-size:1.4rem;line-height:1.3">"Postamos todo dia e o Instagram não traz nenhum cliente."</div>
+            <div class="stat-desc" style="margin-top:12px">— frase que ouvimos toda semana no onboarding</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" style="font-size:1.4rem;line-height:1.3">"Já tentei três agências. Nenhuma entendeu meu negócio."</div>
+            <div class="stat-desc" style="margin-top:12px">— relato comum de quem chega até nós</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" style="font-size:1.4rem;line-height:1.3">"Invisto em anúncio mas não sei se está funcionando."</div>
+            <div class="stat-desc" style="margin-top:12px">— o problema de separar conteúdo de tráfego</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILARES -->
+  <section class="pilares" id="metodo">
+    <div class="container">
+      <span class="section-tag">O Método</span>
+      <h2 class="section-title">O método P.E.A.P</h2>
+      <p class="section-sub" style="margin:0 auto">Três pilares integrados que transformam presença em autoridade e autoridade em performance mensurável.</p>
+
+      <div class="pilares-grid">
+        <div class="pilar-card">
+          <div class="pilar-num">01 / 03</div>
+          <div class="pilar-icon">🎯</div>
+          <h3>Presença Estratégica</h3>
+          <p>Constância com propósito. Não basta aparecer — é preciso aparecer para as pessoas certas, no momento certo, com a mensagem certa. Construímos uma presença que gera reconhecimento real.</p>
+        </div>
+        <div class="pilar-card">
+          <div class="pilar-num">02 / 03</div>
+          <div class="pilar-icon">👑</div>
+          <h3>Autoridade</h3>
+          <p>Autoridade se constrói em camadas. Cada peça de conteúdo, cada anúncio e cada touchpoint reforça seu posicionamento e te torna a referência óbvia no seu mercado.</p>
+        </div>
+        <div class="pilar-card">
+          <div class="pilar-num">03 / 03</div>
+          <div class="pilar-icon">📈</div>
+          <h3>Performance</h3>
+          <p>Performance é o resultado da estratégia integrada. Com presença sólida e autoridade construída, o tráfego pago se torna multiplicador — não um custo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUÇÃO -->
+  <section class="solucao" id="solucao">
+    <div class="container">
+      <span class="section-tag">Como funciona</span>
+      <h2 class="section-title">Solução em 4 etapas</h2>
+      <p class="section-sub">Um processo estruturado que vai da estratégia à escala, com análise contínua para otimizar cada resultado.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <h3>Conteúdo Audiovisual de Alta Performance</h3>
+            <p>Captação, direção e produção de conteúdo estratégico que comunica autoridade. Vídeos, fotos e materiais criados para converter, não apenas para impressionar.</p>
+            <div class="step-tags">
+              <span class="tag">Captação profissional</span>
+              <span class="tag">Direção criativa</span>
+              <span class="tag">Roteiro estratégico</span>
+              <span class="tag">Pós-produção</span>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <h3>Construção de Presença Digital</h3>
+            <p>Estruturação e gestão da presença nas plataformas relevantes para o seu negócio. Calendário editorial, publicação e otimização constante para crescimento orgânico.</p>
+            <div class="step-tags">
+              <span class="tag">Instagram</span>
+              <span class="tag">LinkedIn</span>
+              <span class="tag">YouTube</span>
+              <span class="tag">Calendário editorial</span>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <h3>Distribuição com Tráfego Pago</h3>
+            <p>Amplificação estratégica do conteúdo via Meta Ads e Google Ads. Campanhas estruturadas para cada etapa do funil, com segmentação precisa e otimização constante.</p>
+            <div class="step-tags">
+              <span class="tag">Meta Ads</span>
+              <span class="tag">Google Ads</span>
+              <span class="tag">Funil completo</span>
+              <span class="tag">Retargeting</span>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div class="step-content">
+            <h3>Análise Contínua e Otimização</h3>
+            <p>Dashboard completo com métricas que importam. Reuniões de alinhamento, relatórios transparentes e ajustes estratégicos mensais para manter a performance crescente.</p>
+            <div class="step-tags">
+              <span class="tag">Dashboard personalizado</span>
+              <span class="tag">Relatórios mensais</span>
+              <span class="tag">Reuniões de alinhamento</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTADOS -->
+  <section class="resultados" id="resultados">
+    <div class="container">
+      <span class="section-tag">Resultados</span>
+      <h2 class="section-title">Por que a Enjoy Scale funciona</h2>
+      <p class="section-sub" style="margin:0 auto">A diferença está na integração. Conteúdo e tráfego trabalhando juntos, com estratégia, não separados.</p>
+
+      <div class="resultados-grid">
+        <div class="resultado-card">
+          <div class="r-num">50+</div>
+          <div class="r-label">empresas atendidas desde 2021</div>
+        </div>
+        <div class="resultado-card">
+          <div class="r-num">98%</div>
+          <div class="r-label">dos clientes renovam o contrato</div>
+        </div>
+        <div class="resultado-card">
+          <div class="r-num">3</div>
+          <div class="r-label">plataformas integradas por padrão: Meta, Google e orgânico</div>
+        </div>
+        <div class="resultado-card">
+          <div class="r-num">1 time</div>
+          <div class="r-label">conteúdo e tráfego sob o mesmo teto, sem ruído entre agências</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTREGÁVEIS -->
+  <section class="entregaveis" id="entregaveis">
+    <div class="container">
+      <div class="entregaveis-header">
+        <div>
+          <span class="section-tag">O que está incluso</span>
+          <h2 class="section-title">Tudo que você precisa<br>para escalar.</h2>
+        </div>
+        <p class="section-sub">Estratégia personalizada inclusa. Sem contratos engessados.</p>
+      </div>
+
+      <div class="entregaveis-grid">
+        <div class="entregavel-card">
+          <div class="entregavel-num">01 / 08</div>
+          <span class="entregavel-icon">🎬</span>
+          <h4>Captação Audiovisual</h4>
+          <p>Produção profissional de vídeos e fotos com direção criativa e roteiro estratégico.</p>
+        </div>
+        <div class="entregavel-card">
+          <div class="entregavel-num">02 / 08</div>
+          <span class="entregavel-icon">✂️</span>
+          <h4>Pós-produção Completa</h4>
+          <p>Edição, corte, legendas, motion graphics e entrega nos formatos de cada plataforma.</p>
+        </div>
+        <div class="entregavel-card">
+          <div class="entregavel-num">03 / 08</div>
+          <span class="entregavel-icon">📱</span>
+          <h4>Gestão de Redes Sociais</h4>
+          <p>Publicação, legendas, hashtags e engajamento estratégico nas plataformas relevantes.</p>
+        </div>
+        <div class="entregavel-card">
+          <div class="entregavel-num">04 / 08</div>
+          <span class="entregavel-icon">🎯</span>
+          <h4>Campanhas de Tráfego Pago</h4>
+          <p>Criação, gestão e otimização de campanhas no Meta Ads e Google Ads.</p>
+        </div>
+        <div class="entregavel-card">
+          <div class="entregavel-num">05 / 08</div>
+          <span class="entregavel-icon">🧠</span>
+          <h4>Estratégia de Conteúdo</h4>
+          <p>Planejamento editorial mensal alinhado ao posicionamento e objetivos do negócio.</p>
+        </div>
+        <div class="entregavel-card">
+          <div class="entregavel-num">06 / 08</div>
+          <span class="entregavel-icon">📊</span>
+          <h4>Dashboard de Performance</h4>
+          <p>Relatórios em tempo real com as métricas que realmente importam para o seu negócio.</p>
+        </div>
+        <div class="entregavel-card">
+          <div class="entregavel-num">07 / 08</div>
+          <span class="entregavel-icon">🤝</span>
+          <h4>Reuniões de Alinhamento</h4>
+          <p>Encontros mensais para revisar resultados, ajustar estratégia e planejar os próximos passos.</p>
+        </div>
+        <div class="entregavel-card">
+          <div class="entregavel-num">08 / 08</div>
+          <span class="entregavel-icon">⚙️</span>
+          <h4>Suporte Estratégico</h4>
+          <p>Canal direto com o time para dúvidas, ajustes e oportunidades ao longo do mês.</p>
+        </div>
+      </div>
+
+      <div class="entregaveis-footer">
+        <div class="badge-item">Estratégia personalizada inclusa</div>
+        <div class="badge-item">Sem contratos engessados</div>
+        <div class="badge-item">Time dedicado ao seu negócio</div>
+        <div class="badge-item">Relatórios transparentes</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS - adicionar depoimentos reais aqui -->
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="faq-inner">
+        <div>
+          <span class="section-tag">FAQ</span>
+          <h2 class="section-title">Perguntas frequentes</h2>
+          <p class="section-sub">Tire suas dúvidas antes de falar com nosso time.</p>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q">
+              Em quanto tempo começo a ver resultados?
+              <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-a">Os primeiros resultados de presença e engajamento aparecem entre 30 e 60 dias. Resultados consistentes de conversão e ROI em tráfego pago geralmente se consolidam entre 90 e 120 dias, quando o posicionamento já está estabelecido.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              A Enjoy Scale cuida das minhas redes sociais?
+              <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-a">Sim. Gerenciamos a publicação, o engajamento estratégico e o calendário editorial nas plataformas definidas no onboarding. O conteúdo é sempre aprovado por você antes de ir ao ar.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              Preciso já ter conteúdo para começar?
+              <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-a">Não. A captação audiovisual faz parte do nosso escopo. Nossa equipe vai até você (ou realiza a sessão remotamente, dependendo do projeto) para criar todo o conteúdo necessário.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              Como funciona o processo de trabalho?
+              <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-a">Após o onboarding estratégico, definimos o posicionamento, a pauta do mês e as campanhas. Semanalmente você recebe atualizações e mensalmente realizamos uma reunião de alinhamento com análise completa de resultados.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              Há contrato de fidelidade?
+              <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-a">Trabalhamos com contratos mensais renováveis. Não acreditamos em contratos longos que prendem — acreditamos em resultados que retêm. Nossos 98% de retenção refletem isso.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">
+              Para que tipo de empresa a Enjoy Scale funciona?
+              <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-a">Atendemos empresas B2B e B2C com faturamento a partir de R$ 50k/mês que entendem que presença e autoridade são ativos de negócio. Trabalhamos com clínicas, escritórios, construtoras, e-commerces e prestadores de serviços premium.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / FORMULÁRIO -->
+  <section class="cta-section" id="contato">
+    <div class="container">
+      <span class="section-tag">Vamos conversar</span>
+      <h2 class="section-title" style="max-width:560px;margin:0 auto 16px">Pronto para gerar demanda previsível?</h2>
+      <p class="section-sub" style="margin:0 auto">Preencha o formulário e nosso time entrará em contato em até 24h para entender o seu momento e apresentar como o método P.E.A.P se aplica ao seu negócio.</p>
+
+      <div class="form-card">
+        <form id="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nome">Nome completo</label>
+              <input type="text" id="nome" placeholder="Seu nome" required />
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" placeholder="seu@email.com" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="whatsapp">WhatsApp</label>
+              <input type="tel" id="whatsapp" placeholder="(11) 99999-9999" required />
+            </div>
+            <div class="form-group">
+              <label for="instagram">Instagram</label>
+              <input type="text" id="instagram" placeholder="@seuinstagram" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="segmento">Segmento</label>
+            <input type="text" id="segmento" placeholder="Ex: Clínica, E-commerce, Escritório..." />
+          </div>
+          <div class="form-group">
+            <label for="faturamento">Faixa de faturamento mensal</label>
+            <select id="faturamento" required>
+              <option value="" disabled selected>Selecione...</option>
+              <option>Até R$ 50 mil</option>
+              <option>De R$ 50 mil a R$ 150 mil</option>
+              <option>De R$ 150 mil a R$ 500 mil</option>
+              <option>De R$ 500 mil a R$ 1 milhão</option>
+              <option>Acima de R$ 1 milhão</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-form">Quero aplicar o método P.E.A.P →</button>
+          <p class="form-disclaimer">Sem spam. Seus dados são confidenciais.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="logo">enjoy<span>scale</span></a>
+          <p>Estratégia audiovisual e tráfego pago para empresas que querem crescer com previsibilidade.</p>
+          <div class="social-links" style="margin-top:20px">
+            <a href="#" class="social-link" title="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" class="social-link" title="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h5>Navegação</h5>
+          <ul>
+            <li><a href="#metodo">Método P.E.A.P</a></li>
+            <li><a href="#solucao">Solução</a></li>
+            <li><a href="#resultados">Cases</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h5>Contato</h5>
+          <ul>
+            <li><a href="#contato">Quero aplicar</a></li>
+            <li><a href="#contato">Fale com o time</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Enjoy Scale. Todos os direitos reservados.</p>
+        <p style="color:var(--muted2);font-size:0.8rem">Presença · Autoridade · Performance</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Form submit
+    document.getElementById('contact-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = e.target.querySelector('.btn-form');
+      btn.textContent = '✓ Enviado! Entraremos em contato em breve.';
+      btn.style.background = '#22c55e';
+      btn.disabled = true;
+    });
+
+    // Smooth nav active state
+    const sections = document.querySelectorAll('section[id], .hero');
+    const links = document.querySelectorAll('.nav-links a');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach(l => l.style.color = '');
+          const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+          if (active) active.style.color = 'var(--accent)';
+        }
+      });
+    }, { threshold: 0.4 });
+    sections.forEach(s => observer.observe(s));
+  </script>
+</body>
+</html>
