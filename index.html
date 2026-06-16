@@ -44,6 +44,9 @@
       color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
 
     /* ── NAV ── */
@@ -852,6 +855,10 @@
       .faq-inner { grid-template-columns: 1fr; gap: 40px; }
       .form-card { padding: 28px; }
       .form-row { grid-template-columns: 1fr; }
+      section { padding: 72px 6%; }
+      .hero { padding: 120px 6% 64px; }
+      .entregaveis-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .section-title { letter-spacing: -0.5px; }
     }
 
     @media (max-width: 580px) {
@@ -880,7 +887,7 @@
       <li><a href="#resultados">Resultados</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a href="#contato" class="nav-cta">Quero aplicar</a>
+    <a href="https://wa.me/5561991893159?text=Oi!%20Quero%20aplicar%20o%20m%C3%A9todo%20K.R.O.V.%20na%20minha%20empresa." target="_blank" rel="noopener" class="nav-cta">Chamar no WhatsApp</a>
     <div class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </div>
@@ -891,8 +898,8 @@
     <h1>Conteúdo, tráfego<br>e vendas.<br><span class="highlight">Um time só.</span></h1>
     <p>A gente cuida do seu marketing de ponta a ponta: conteúdo, redes, tráfego e vendas. Você foca em tocar o negócio, a gente traz cliente.</p>
     <div class="hero-cta-group">
-      <a href="#contato" class="btn-primary">Quero aplicar o método →</a>
-      <a href="#metodo" class="btn-secondary">Como funciona</a>
+      <a href="https://wa.me/5561991893159?text=Oi!%20Quero%20aplicar%20o%20m%C3%A9todo%20K.R.O.V.%20na%20minha%20empresa." target="_blank" rel="noopener" class="btn-primary">Falar no WhatsApp →</a>
+      <a href="#contato" class="btn-secondary">Preencher formulário</a>
     </div>
     <div class="hero-metrics">
       <div class="metric">
@@ -1288,7 +1295,7 @@
             </select>
           </div>
           <button type="submit" class="btn-form">Quero aplicar o método K.R.O.V. →</button>
-          <p class="form-disclaimer">Sem spam. Seus dados são confidenciais.</p>
+          <p class="form-disclaimer">Ao enviar, abrimos o WhatsApp com seus dados já preenchidos. Sem spam.</p>
         </form>
       </div>
     </div>
@@ -1372,13 +1379,30 @@
       a.addEventListener('click', () => navLinks.classList.remove('open'));
     });
 
-    // Form submit
+    // Form submit -> abre o WhatsApp da Krov com os dados preenchidos
+    const KROV_WHATSAPP = '5561991893159';
     document.getElementById('contact-form').addEventListener('submit', e => {
       e.preventDefault();
+      const v = id => (document.getElementById(id).value || '').trim();
+      const linhas = [
+        'Olá! Quero aplicar o método K.R.O.V. na minha empresa.',
+        '',
+        'Nome: ' + v('nome'),
+        'E-mail: ' + v('email'),
+        'WhatsApp: ' + v('whatsapp'),
+        v('instagram') ? 'Instagram: ' + v('instagram') : '',
+        v('segmento') ? 'Segmento: ' + v('segmento') : '',
+        'Faturamento mensal: ' + v('faturamento')
+      ].filter(Boolean);
+      const url = 'https://wa.me/' + KROV_WHATSAPP + '?text=' + encodeURIComponent(linhas.join('\n'));
       const btn = e.target.querySelector('.btn-form');
-      btn.textContent = '✓ Enviado! Entraremos em contato em breve.';
-      btn.style.background = '#22c55e';
-      btn.disabled = true;
+      btn.textContent = 'Abrindo o WhatsApp...';
+      btn.style.background = '#25d366';
+      window.open(url, '_blank');
+      setTimeout(() => {
+        btn.textContent = 'Continuar a conversa no WhatsApp →';
+        btn.onclick = () => window.open(url, '_blank');
+      }, 1200);
     });
 
     // Smooth nav active state
