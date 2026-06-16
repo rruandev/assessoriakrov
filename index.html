@@ -3,7 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Krov | Estratégia audiovisual e tráfego pago</title>
+  <title>Krov Assessoria | Conteúdo, tráfego e vendas num time só</title>
+  <meta name="description" content="A Krov cuida do seu marketing de ponta a ponta: conteúdo, redes, tráfego e vendas no mesmo time. Método K.R.O.V. para crescer com previsibilidade." />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Krov Assessoria | Conteúdo, tráfego e vendas num time só" />
+  <meta property="og:description" content="Marketing de ponta a ponta no mesmo time. A gente cuida, você cresce." />
+  <meta property="og:locale" content="pt_BR" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Krov Assessoria" />
+  <meta name="twitter:description" content="Conteúdo, tráfego e vendas num time só." />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0a0a'/%3E%3Ctext x='28' y='72' font-family='Arial Black,sans-serif' font-weight='900' font-size='64' fill='white'%3EK%3C/text%3E%3Cpolygon points='62,30 78,30 70,58' fill='%2300cc44'/%3E%3C/svg%3E" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
@@ -780,6 +794,42 @@
       to { transform: translateX(-50%); }
     }
 
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ── WHATSAPP FLOAT ── */
+    .wa-float {
+      position: fixed;
+      bottom: 24px; right: 24px;
+      z-index: 90;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #25d366;
+      color: #0a0a0a;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      padding: 14px 20px;
+      border-radius: 100px;
+      box-shadow: 0 8px 30px rgba(37,211,102,0.35);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .wa-float:hover { transform: translateY(-2px); box-shadow: 0 12px 38px rgba(37,211,102,0.45); }
+    .wa-float svg { flex-shrink: 0; }
+    @media (max-width: 580px) {
+      .wa-float { padding: 14px; }
+      .wa-float .wa-label { display: none; }
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .nav-links { display: none; }
@@ -827,7 +877,7 @@
     <ul class="nav-links" id="nav-links">
       <li><a href="#metodo">Método K.R.O.V.</a></li>
       <li><a href="#solucao">Solução</a></li>
-      <li><a href="#resultados">Cases</a></li>
+      <li><a href="#resultados">Resultados</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
     <a href="#contato" class="nav-cta">Quero aplicar</a>
@@ -1273,8 +1323,8 @@
           <ul>
             <li><a href="#metodo">Método K.R.O.V.</a></li>
             <li><a href="#solucao">Solução</a></li>
-            <li><a href="#resultados">Cases</a></li>
-            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#resultados">Resultados</a></li>
+            <li><a href="#entregaveis">O que está incluso</a></li>
             <li><a href="#faq">FAQ</a></li>
           </ul>
         </div>
@@ -1289,11 +1339,18 @@
       </div>
 
       <div class="footer-bottom">
-        <p>© 2026 Krov. Todos os direitos reservados.</p>
-        <p style="color:var(--muted2);font-size:0.8rem">Presença · Autoridade · Performance</p>
+        <p>© 2026 Krov Assessoria. Todos os direitos reservados.</p>
+        <p style="color:var(--muted2);font-size:0.8rem">Kickoff · Roteiro · Operação · Validação</p>
       </div>
     </div>
   </footer>
+
+  <!-- Troque o número 5561999999999 pelo WhatsApp da Krov (DDI 55 + DDD + número) -->
+  <a href="https://wa.me/5561999999999?text=Oi!%20Quero%20saber%20mais%20sobre%20a%20Krov."
+     class="wa-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.6.2-.2.3-.7.9-.8 1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.6-1.5-.8-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3.9 2.5 1.1 2.7.1.2 1.9 2.9 4.6 4 .6.3 1.1.5 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-2.9.8.8-2.8-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+    <span class="wa-label">Falar no WhatsApp</span>
+  </a>
 
   <script>
     // FAQ accordion
@@ -1338,6 +1395,25 @@
       });
     }, { threshold: 0.4 });
     sections.forEach(s => observer.observe(s));
+
+    // Scroll reveal animations
+    const revealEls = document.querySelectorAll(
+      '.section-tag, .section-title, .section-sub, .pilar-card, .step, .resultado-card, .entregavel-card, .problema-item, .stat-card, .faq-item, .form-card, .entregaveis-footer'
+    );
+    revealEls.forEach(el => el.classList.add('reveal'));
+    const revealObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          entry.target.style.transitionDelay = (entry.target.dataset.delay || '0') + 'ms';
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.pilares-grid, .resultados-grid, .entregaveis-grid, .problema-list, .problema-visual').forEach(grid => {
+      grid.querySelectorAll('.reveal').forEach((el, i) => el.dataset.delay = i * 80);
+    });
+    revealEls.forEach(el => revealObserver.observe(el));
   </script>
 </body>
 </html>
